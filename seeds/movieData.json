@@ -1,0 +1,18 @@
+[
+    {
+      "movie": "Big Lebowski",
+      "genre": "comedy"
+    },
+
+    {
+        "movie": "Gone With The Wind",
+        "genre": "classic"
+      },
+
+      {
+        "movie": "Schindler's List",
+        "genre": "drama"
+      }
+   
+  ]
+  
