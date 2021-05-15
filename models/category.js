@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Movie extends Model {}
+class Category extends Model {}
 
-Movie.init(
+Category.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,22 +11,11 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    movie: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    genre: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    category: {
+    watched: {
       type: DataTypes.BOOLEAN,
-      references: {
-        model: 'category',
-        key: 'id',
-      },
+      allowNull: false,
+      defaultValue: false
     },
-    
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -37,11 +26,11 @@ Movie.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'movie',
+    modelName: 'category',
   }
 );
 
-module.exports = Movie;
+module.exports = Category;
