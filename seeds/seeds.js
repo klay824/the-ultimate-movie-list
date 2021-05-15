@@ -2,7 +2,7 @@ const sequelize = require('../config/connection');
 const { User, Movie } = require('../models');
 
 const userData = require('./userData.json');
-const movietData = require('./movieData.json');
+const movieData = require('./movieData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -12,7 +12,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const project of movieData) {
+  for (const movie of movieData) {
     await Movie.create({
       ...movie,
       user_id: users[Math.floor(Math.random() * users.length)].id,
