@@ -12,36 +12,17 @@
 </head>
 
 <body>
-    <div class="flex-column justify-space-around">
-        <header class="display-flex justify-space-between align-center p-2">
-            <h1>
-                <i class="fas fa-video"></i>
-                <a href="/">The Ultimate Movie List</a>
-            </h1>
-            <nav>
-                <a href="/dashboard">Dashboard</a>
-                <!-- Conditionally render login or logout links -->
-                {{#if logged_in}}
-                {{!-- <a href="/profile">profile</a> | --}}
-                <button class="no-button" id="logout">logout</button>
-                {{else}}
-                <a href="/login">login</a>
-                {{/if}}
-            </nav>
-        </header>
-        <main class="container container-fluid mt-5">
-            <!-- Render the sub layout -->
-            {{{ body }}}
-        </main>
-        <footer>
 
-        </footer>
+    <main class="container container-fluid mt-5">
+        <!-- Render the sub layout -->
+        {{{ body }}}
+    </main>
+    <footer>
+
+    </footer>
     </div>
 
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
