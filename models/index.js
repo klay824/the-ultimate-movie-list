@@ -11,4 +11,8 @@ Movie.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-module.exports = { User, Movie };
+Category.belongsTo(Movie, {
+  foreignKey: 'user_id'
+});
+
+module.exports = { User, Movie, Category };
