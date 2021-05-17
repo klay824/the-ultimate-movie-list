@@ -1,4 +1,4 @@
-const loginFormHandler = async = (event) => {
+const loginFormHandler = async (event) => {
     event.preventDefault();
 
     // Collect values from the login form
@@ -13,7 +13,7 @@ const loginFormHandler = async = (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
         }
