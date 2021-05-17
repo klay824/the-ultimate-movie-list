@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const { User, Movie, Category } = require('../models');
-const path = require('path');
-const isAuthenticated = require('../config/middleware/isAuthenticated');
+const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
 	res.render('dashboard');
 });
 
@@ -28,6 +27,7 @@ router.get('/', async (req, res) => {
 // 				},
 // 			],
 // 		});
+// 		console.log(movieData);
 
 // 		const movies = movieData.map((movie) => movie.get({ plain: true }));
 
@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
 // 	}
 // });
 
-router.get('/edit/:id', isAuthenticated, async (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
 	try {
 		const movieData = await Movie.findByPk(req.params.id, {
 			attributes: ['id', 'movie', 'genre', 'user_id'],

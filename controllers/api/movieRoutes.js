@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Movie } = require('../../models');
-const isAuthenticated = require('../../config/middleware/isAuthenticated');
+const withAuth = require('../../utils/auth');
 
-router.put('/:id', isAuthenticated, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const movieData = await Movie.update(
             {
@@ -27,3 +27,5 @@ router.put('/:id', isAuthenticated, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
