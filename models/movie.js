@@ -21,7 +21,7 @@ Movie.init(
     },
     unwatched: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      defaultValue: true
     },
 
     user_id: {
