@@ -9,8 +9,12 @@ body {
   background-color: var(--orange);
 }
 
-#welcome {
+h1 {
   font-family: "Codystar", cursive;
   color: var(--yellow);
   font-weight: bolder;
+}
+
+h4 {
+  text-align: left;
 }
