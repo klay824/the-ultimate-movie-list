@@ -1,0 +1,16 @@
+* {
+  --orange: #ff9416;
+  --yellow: #ffde9c;
+  --red: #f02925;
+  font-family: "Abel", sans-serif;
+}
+
+body {
+  background-color: var(--orange);
+}
+
+#welcome {
+  font-family: "Codystar", cursive;
+  color: var(--yellow);
+  font-weight: bolder;
+}
