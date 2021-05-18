@@ -1,13 +1,14 @@
 <div class="row">
+  <h1 class="col-12">Your Ultimate Movie Watchlist!</h1>
 </div>
 
-<form class="form-group">
-  <input class="form-control" type="text" placeholder="Search Movie">
-  <select class="custom-select">
+<form class="form-group new-movie">
+  <input class="form-control" type="text" id="movie-title" placeholder="Search Movie">
+  <select class="custom-select" id="genre-select">
     <option selected>Select Genre</option>
-    <option value="1">Comedy</option>
-    <option value="2">Thriller</option>
-    <option value="3">Action</option>
+    <option value="Comedy">Comedy</option>
+    <option value="Thriller">Thriller</option>
+    <option value="Action">Action</option>
   </select>
   <button class="btn btn-danger" type="submit">Add to Watchlist</button>
 </form>
@@ -29,11 +30,11 @@
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">
-            {{!-- {{#if dataValues.unwatched === 0}}
+            {{#if dataValues.unwatched}}
             Unwatched
             {{else}}
             Watched
-            {{/if}} --}}
+            {{/if}}
           </label>
 
         </div>
@@ -47,4 +48,5 @@
   <button class="btn btn-danger" id="logout">logout</button>
 </div>
 
+<script src="/js/newMovie.js"></script>
 <script src="/js/logout.js"></script>

@@ -17,11 +17,11 @@ router.get('/', withAuth, (req, res) => {
 			},
 		],
 	}).then(dataRes => {
-
+		console.log(dataRes);
 		const hbsobj = {
 			movies: dataRes
 		}
-
+		console.log(hbsobj);
 		res.render('dashboard', hbsobj);
 	});
 });
