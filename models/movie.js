@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Movie extends Model {}
+class Movie extends Model { }
 
 Movie.init(
   {
@@ -19,14 +19,11 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    category: {
+    unwatched: {
       type: DataTypes.BOOLEAN,
-      references: {
-        model: 'category',
-        key: 'id',
-      },
+      defaultValue: false
     },
-    
+
     user_id: {
       type: DataTypes.INTEGER,
       references: {

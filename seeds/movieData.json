@@ -1,17 +1,23 @@
 [
     {
       "movie": "Big Lebowski",
-      "genre": "comedy"
+      "genre": "comedy",
+      "unwatched": false,
+      "user_id": 2
     },
 
     {
         "movie": "Gone With The Wind",
-        "genre": "classic"
+        "genre": "classic",
+        "unwatched": true,
+        "user_id": 1
       },
 
       {
         "movie": "Schindler's List",
-        "genre": "drama"
+        "genre": "drama",
+        "unwatched": false,
+        "user_id": 3
       }
    
   ]
