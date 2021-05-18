@@ -1,9 +1,12 @@
 const router = require('express').Router();
-const path = require('path');
-const isAuthenticated = require('../config/middleware/isAuthenticated');
 
 router.get('/', (req, res) => {
-    res.render('homepage');
+    if (!req.session.logged_in) {
+        res.render('homepage');
+    } else {
+        res.redirect('/dashboard')
+    }
+    return;
 });
 
 router.get('/login', async (req, res) => {
@@ -12,7 +15,7 @@ router.get('/login', async (req, res) => {
         return;
     }
 
-    res.render('homepage');
+    res.render('login');
 });
 
 router.get('/signup', async (req, res) => {
@@ -20,7 +23,7 @@ router.get('/signup', async (req, res) => {
         res.redirect('/dashboard');
         return;
     }
-    res.render('homepage');
+    res.render('signup');
 });
 
 module.exports = router;

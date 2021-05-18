@@ -1,60 +1,46 @@
 const router = require('express').Router();
-const { User, Movie, Category } = require('../models');
-const path = require('path');
-const isAuthenticated = require('../config/middleware/isAuthenticated');
+const { User, Movie } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-	res.render('dashboard');
+// this displays each user's movies
+router.get('/', withAuth, (req, res) => {
+	console.log(req.session)
+
+	Movie.findAll({
+		where: {
+			user_id: req.session.user_id
+		},
+		include: [
+			{
+				model: User,
+				attributes: ['id'],
+			},
+		],
+	}).then(dataRes => {
+
+		const hbsobj = {
+			movies: dataRes
+		}
+
+		res.render('dashboard', hbsobj);
+	});
 });
 
-// router.get('/', async (req, res) => {
-// 	try {
-// 		const movieData = await Movie.findAll({
-// 			where: {
-// 				user_id: req.session.user_id
-// 			},
-// 			include: [
-// 				{
-// 					model: User,
-// 					attributes: ['name'],
-// 				},
-// 				{
-// 					model: Movie,
-// 					attributes: ['id', 'movie', 'genre', 'user_id'],
-// 					include: {
-// 						model: User,
-// 						attributes: ['name'],
-// 					},
-// 				},
-// 			],
-// 		});
-
-// 		const movies = movieData.map((movie) => movie.get({ plain: true }));
-
-// 		res.render('dashboard', {
-// 			movies,
-// 			logged_in: req.session.logged_in
-// 		});
-// 	} catch (err) {
-// 		res.status(500).json(err);
-// 	}
-// });
-
-router.get('/edit/:id', isAuthenticated, async (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
 	try {
 		const movieData = await Movie.findByPk(req.params.id, {
 			attributes: ['id', 'movie', 'genre', 'user_id'],
 			include: [
 				{
 					model: User,
-					attributes: ['name'],
+					// attributes: ['name'],
 				},
 				{
 					model: Category,
 					attributes: ['id', 'watched', 'user_id'],
 					include: {
 						model: User,
-						attributes: ['name'],
+						// attributes: ['name'],
 					},
 				},
 			],
