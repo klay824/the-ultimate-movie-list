@@ -1,61 +1,68 @@
-<div class="row">
-  <h1 class="col-12">Your Ultimate Movie Watchlist!</h1>
+<div class="row" id="dashboard-header">
+  <img src="/assets/movienight-background.png" class="img-fluid col-md-2" alt="tub of popcorn" />
+    <h1 class="col-8" id="welcome"> Your Ultimate Movie Watchlist</h1>
+  <form method="POST" action="/logout?_method=DELETE">
+      <button type="submit" class="btn btn-warning" id="logout">logout</button>
+    </form>
 </div>
 
-<div>
-  <form class="form-group new-movie">
-    <input class="form-control" type="text" id="movie-title" placeholder="Search Movie">
-    <select class="custom-select" id="genre-select">
-      <option selected>Select Genre</option>
-      <option value="Action/Adventure">Action/Adventure</option>
-      <option value="Animation">Animation</option>
-      <option value="Comedy">Comedy</option>
-      <option value="Crime">Crime</option>
-      <option value="Drama">Drama</option>
-      <option value="Fantasy">Fantasy</option>
-      <option value="Historical">Historical</option>
-      <option value="Horror">Horror</option>
-      <option value="Mystery/Thriller">Mystery/Thriller</option>
-      <option value="Science Fiction">Science Fiction</option>
-      <option value="Western">Western</option>
-    </select>
-    <button class="btn btn-danger" type="submit">Add to Watchlist</button>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-5">
+     <!--movie-->
+      <form class="form-group new-movie">
+        <input class="form-control" type="text" id="movie-title" placeholder="Enter Movie Title">
+    </div>
+     <!--genre-->
+    <div class="col-12 col-md-3">
+      <select class="custom-select" id="genre-select">
+        <option selected>Select Genre</option>
+        <option value="Action/Adventure">Action/Adventure</option>
+        <option value="Animation">Animation</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Crime">Crime</option>
+        <option value="Drama">Drama</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Historical">Historical</option>
+        <option value="Horror">Horror</option>
+        <option value="Mystery/Thriller">Mystery/Thriller</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Western">Western</option>
+      </select>
+    </div>
+
+    <!--watched-->
+      <div class="col-12 col-md-4 align-items-end">
+        <button class="btn btn-danger" type="submit">Add to Watchlist</button>
+      </div>
   </form>
-  <form method="POST" action="/logout?_method=DELETE">
-    <button type="submit" class="btn btn-warning" id="logout">logout</button>
-  </form>
+</div> 
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Movie Title</th>
-      <th scope="col">Genre</th>
-      <th scope="col">Watched</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
+
     {{#each movies}}
-    <tr>
-      <td>{{dataValues.movie}}</td>
-      <td>{{dataValues.genre}}</td>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-5">
+      <div class="data">{{dataValues.movie}}</div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="data">{{dataValues.genre}}</div>
+    </div>  
+
+    <div class="col-12 col-md-4">
       {{#if dataValues.unwatched}}
-      <td>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="checked" id="flexCheckDefault"
             movie-id="{{dataValues.id}}">
           <label class="form-check-label" movie-id="{{dataValues.id}}" for="flexCheckDefault">Unwatched</label>
-          <button class="btn btn-danger ml-5" type="submit">Mark as watched</button>
+          <button class="btn btn-danger btn-sm" type="submit">Mark as watched</button>
         </div>
-      </td>
       {{else}}
-      <td>Watched</td>
+      <div>Watched</div>
       {{/if}}
-    </tr>
+    </div>
     {{/each}}
-  </tbody>
-</table>
+</div>
 
 <script src="/js/newMovie.js"></script>
 <script src="/js/updateStatus.js"></script>
