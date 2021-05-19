@@ -19,7 +19,6 @@ router.put('/:id', withAuth, async (req, res) => {
     try {
         const movieData = await Movie.update(
             {
-                movie: req.body.movie,
                 unwatched: req.body.unwatched,
             },
             {

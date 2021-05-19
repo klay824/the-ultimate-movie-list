@@ -3,7 +3,7 @@ const updateStatus = async (event) => {
 
     if (event.target.hasAttribute('movie-id')) {
         const id = event.target.getAttribute('movie-id');
-        const status = document.querySelector('#flexCheckDefault').checked = true;
+        const status = document.querySelector('#flexCheckDefault').value;
 
         const response = await fetch(`/api/movies/${id}`, {
             method: 'PUT',
