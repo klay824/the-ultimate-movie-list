@@ -19,8 +19,7 @@ router.put('/:id', withAuth, async (req, res) => {
     try {
         const movieData = await Movie.update(
             {
-                movie: req.body.movie,
-                category: req.body.category,
+                unwatched: req.body.unwatched,
             },
             {
                 where: {
@@ -29,7 +28,7 @@ router.put('/:id', withAuth, async (req, res) => {
                 },
             }
         );
-
+        console.log('MOVIE-DATA:', movieData);
         if (!movieData) {
             res.status(404).json({ message: "No movie found with that id." });
             return;

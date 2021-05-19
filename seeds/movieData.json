@@ -1,36 +1,36 @@
 [
     {
       "movie": "The Big Lebowski",
-      "genre": "comedy",
+      "genre": "Comedy",
       "unwatched": true,
       "user_id": 2
     },
     {
       "movie": "It's A Wonderful Life",
-      "genre": "drama",
+      "genre": "Drama",
       "unwatched": false,
       "user_id": 2
     },
     {
       "movie": "Apocolypse Now",
-      "genre": "drama",
+      "genre": "Drama",
       "unwatched": false,
       "user_id": 2
     },
 
     {
-        "movie": "Gone With The Wind",
-        "genre": "classic",
-        "unwatched": false,
-        "user_id": 1
-      },
+      "movie": "Gone With The Wind",
+      "genre": "Drama",
+      "unwatched": false,
+      "user_id": 1
+    },
 
-      {
-        "movie": "Schindler's List",
-        "genre": "drama",
-        "unwatched": true,
-        "user_id": 3
-      }
+    {
+      "movie": "Schindler's List",
+      "genre": "Historical",
+      "unwatched": true,
+      "user_id": 3
+    }
    
   ]
   
