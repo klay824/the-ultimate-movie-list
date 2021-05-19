@@ -1,7 +1,3 @@
-<div class="row">
-  <h1 class="col-12">Your Ultimate Movie Watchlist!</h1>
-</div>
-
 <form class="form-group new-movie">
   <input class="form-control" type="text" id="movie-title" placeholder="Search Movie">
   <select class="custom-select" id="genre-select">
@@ -21,7 +17,12 @@
   <button class="btn btn-danger" type="submit">Add to Watchlist</button>
 </form>
 
-<table class="table">
+<div class="d-grid gap-2 d-md-flex justify-content-md-end col-2">
+  <button class="btn btn-warning me-md-2" id="logout">logout</button>
+</div>
+</div>
+
+<table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Movie Title</th>
@@ -30,6 +31,29 @@
     </tr>
   </thead>
   <tbody>
+    <td>
+      <form class="form-group">
+        <input class="form-control" type="text" placeholder="Enter Movie Title">
+    </td>
+    <td><select class="custom-select">
+        <option selected>Select Genre</option>
+        <option value="1">Action</option>
+        <option value="2">Animation</option>
+        <option value="3">Classic</option>
+        <option value="4">Comedy</option>
+        <option value="5">Documentary</option>
+        <option value="6">Drama</option>
+        <option value="7">Family</option>
+        <option value="8">Horror</option>
+        <option value="9">Romance</option>
+        <option value="10">Sci-Fi</option>
+        <option value="11">Thriller</option>
+        <option value="12">Western</option>
+      </select></td>
+    <td> <button class="btn btn-danger" type="submit">Mark as watched</button>
+      </form>
+    </td>
+
     {{#each movies}}
     <tr>
       <td>{{dataValues.movie}}</td>
