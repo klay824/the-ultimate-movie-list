@@ -1,7 +1,13 @@
-<div class="row" id="dashboard-header">
-  <img src="/assets/movienight-background.png" class="img-fluid col-md-2" alt="tub of popcorn" />
-<h1 class="col-8" id="welcome"> Your Ultimate Movie Watchlist</h1>
-
+<form class="form-group new-movie">
+  <input class="form-control" type="text" id="movie-title" placeholder="Search Movie">
+  <select class="custom-select" id="genre-select">
+    <option selected>Select Genre</option>
+    <option value="Comedy">Comedy</option>
+    <option value="Thriller">Thriller</option>
+    <option value="Action">Action</option>
+  </select>
+  <button class="btn btn-danger" type="submit">Add to Watchlist</button>
+</form>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end col-2">
   <button class="btn btn-warning me-md-2" id="logout">logout</button>
@@ -45,11 +51,11 @@
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">
-            {{!-- {{#if dataValues.unwatched === 0}}
+            {{#if dataValues.unwatched}}
             Unwatched
             {{else}}
             Watched
-            {{/if}} --}}
+            {{/if}}
           </label>
 
         </div>
@@ -60,4 +66,5 @@
 </table>
 
 
+<script src="/js/newMovie.js"></script>
 <script src="/js/logout.js"></script>
