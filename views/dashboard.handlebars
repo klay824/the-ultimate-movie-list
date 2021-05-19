@@ -2,25 +2,29 @@
   <h1 class="col-12">Your Ultimate Movie Watchlist!</h1>
 </div>
 
-<form class="form-group new-movie">
-  <input class="form-control" type="text" id="movie-title" placeholder="Search Movie">
-  <select class="custom-select" id="genre-select">
-    <option selected>Select Genre</option>
-    <option value="Action/Adventure">Action/Adventure</option>
-    <option value="Animation">Animation</option>
-    <option value="Comedy">Comedy</option>
-    <option value="Crime">Crime</option>
-    <option value="Drama">Drama</option>
-    <option value="Fantasy">Fantasy</option>
-    <option value="Historical">Historical</option>
-    <option value="Horror">Horror</option>
-    <option value="Mystery/Thriller">Mystery/Thriller</option>
-    <option value="Science Fiction">Science Fiction</option>
-    <option value="Western">Western</option>
-  </select>
-  <button class="btn btn-danger" type="submit">Add to Watchlist</button>
-</form>
-
+<div>
+  <form class="form-group new-movie">
+    <input class="form-control" type="text" id="movie-title" placeholder="Search Movie">
+    <select class="custom-select" id="genre-select">
+      <option selected>Select Genre</option>
+      <option value="Action/Adventure">Action/Adventure</option>
+      <option value="Animation">Animation</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Crime">Crime</option>
+      <option value="Drama">Drama</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Historical">Historical</option>
+      <option value="Horror">Horror</option>
+      <option value="Mystery/Thriller">Mystery/Thriller</option>
+      <option value="Science Fiction">Science Fiction</option>
+      <option value="Western">Western</option>
+    </select>
+    <button class="btn btn-danger" type="submit">Add to Watchlist</button>
+  </form>
+  <form method="POST" action="/logout?_method=DELETE">
+    <button type="submit" class="btn btn-warning" id="logout">logout</button>
+  </form>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -42,10 +46,8 @@
           <input class="form-check-input" type="checkbox" name="checked" id="flexCheckDefault"
             movie-id="{{dataValues.id}}">
           <label class="form-check-label" movie-id="{{dataValues.id}}" for="flexCheckDefault">Unwatched</label>
+          <button class="btn btn-danger ml-5" type="submit">Mark as watched</button>
         </div>
-      </td>
-      <td>
-        <button class="btn btn-danger" type="submit">Mark as watched</button>
       </td>
       {{else}}
       <td>Watched</td>
@@ -54,12 +56,6 @@
     {{/each}}
   </tbody>
 </table>
-
-<div class="form-group">
-  <form method="POST" action="/logout?_method=DELETE">
-    <button type="submit" class="btn btn-danger" id="logout">logout</button>
-  </form>
-</div>
 
 <script src="/js/newMovie.js"></script>
 <script src="/js/updateStatus.js"></script>

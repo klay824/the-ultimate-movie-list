@@ -19,4 +19,4 @@ const updateStatus = async (event) => {
     }
 };
 
-document.querySelector('.form-check').addEventListener('change', updateStatus);
+document.querySelector('.form-check').addEventListener('submit', updateStatus);
