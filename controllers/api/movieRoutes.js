@@ -16,28 +16,15 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => {
-    try {
-        const movieData = await Movie.update(
-            {
-                unwatched: req.body.unwatched,
-            },
-            {
-                where: {
-                    id: req.params.id,
-                    user_id: req.session.user_id,
-                },
-            }
-        );
-        console.log('MOVIE-DATA:', movieData);
-        if (!movieData) {
-            res.status(404).json({ message: "No movie found with that id." });
-            return;
+    await Movie.update({
+        unwatched: req.body.status ? 1 : 0
+    }, {
+        where: {
+            id: req.params.id,
+            user_id: req.session.user_id,
         }
-
-        res.status(200).json(movieData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    });
+    res.json(200);
 });
 
 module.exports = router;

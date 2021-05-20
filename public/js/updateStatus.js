@@ -4,24 +4,22 @@ const updateStatus = async (event) => {
 
     if (event.target.hasAttribute('movie-id')) {
         const id = event.target.getAttribute('movie-id');
-        const status = document.querySelector(`#set-watched${id}`).checked;
+        const status = document.querySelector(`#set-watched-${id}`).checked;
 
 
         console.log('ID', id);
         console.log('STATUS', status);
 
-        const response = await fetch(`/ api / movies / ${id}`, {
+        const res = await fetch(`/api/movies/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ status }),
             headers: { 'Content-Type': 'application/json' },
         });
 
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to change watched status.');
+        if (res.ok) {
+            window.location.replace('/dashboard');
         }
     }
 };
 
-document.querySelector('.form-check').addEventListener('click', updateStatus);
+document.querySelector('.form-check').addEventListener('submit', updateStatus);
