@@ -1,19 +1,19 @@
 <div class="row" id="dashboard-header">
   <img src="/assets/movienight-background.png" class="img-fluid col-md-2" alt="tub of popcorn" />
-    <h1 class="col-8" id="welcome"> Your Ultimate Movie Watchlist</h1>
+  <h1 class="col-8" id="welcome"> Your Ultimate Movie Watchlist</h1>
   <form method="POST" action="/logout?_method=DELETE">
-      <button type="submit" class="btn btn-warning" id="logout">logout</button>
-    </form>
+    <button type="submit" class="btn btn-warning" id="logout">logout</button>
+  </form>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-5">
-     <!--movie-->
+      <!--movie-->
       <form class="form-group new-movie">
         <input class="form-control" type="text" id="movie-title" placeholder="Enter Movie Title">
     </div>
-     <!--genre-->
+    <!--genre-->
     <div class="col-12 col-md-3">
       <select class="custom-select" id="genre-select">
         <option selected>Select Genre</option>
@@ -32,14 +32,14 @@
     </div>
 
     <!--watched-->
-      <div class="col-12 col-md-4 align-items-end">
-        <button class="btn btn-danger" type="submit">Add to Watchlist</button>
-      </div>
-  </form>
-</div> 
+    <div class="col-12 col-md-4 align-items-end">
+      <button class="btn btn-danger" type="submit">Add to Watchlist</button>
+    </div>
+    </form>
+  </div>
 </div>
 
-    {{#each movies}}
+{{#each movies}}
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-5">
@@ -47,23 +47,23 @@
     </div>
     <div class="col-12 col-md-3">
       <div class="data">{{dataValues.genre}}</div>
-    </div>  
+    </div>
 
     <div class="col-12 col-md-4">
       {{#if dataValues.unwatched}}
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="checked" id="flexCheckDefault"
-            movie-id="{{dataValues.id}}">
-          <label class="form-check-label" movie-id="{{dataValues.id}}" for="flexCheckDefault">Unwatched</label>
-          <button class="btn btn-danger btn-sm" type="submit">Mark as watched</button>
-        </div>
+      <form class="form-check" movie-id="{{dataValues.id}}">
+        <input class="form-check-input" type="checkbox" value=0 id="set-watched-{{dataValues.id}}"
+          movie-id="{{dataValues.id}}">
+        <label class="form-check-label" movie-id="{{dataValues.id}}" for="set-watched">Unwatched</label>
+        <button class="btn btn-danger btn-sm" type="submit">Mark as watched</button>
+      </form>
       {{else}}
       <div>Watched</div>
       {{/if}}
     </div>
     {{/each}}
-</div>
+  </div>
 
-<script src="/js/newMovie.js"></script>
-<script src="/js/updateStatus.js"></script>
-<script src="/js/logout.js"></script>
+  <script src="/js/newMovie.js"></script>
+  <script src="/js/updateStatus.js"></script>
+  <script src="/js/logout.js"></script>
