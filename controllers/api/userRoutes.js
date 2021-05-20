@@ -44,6 +44,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// used method-override to change router.post to router.delete
 router.delete('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
