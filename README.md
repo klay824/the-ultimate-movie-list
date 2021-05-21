@@ -21,3 +21,7 @@ The ability for users to invite friends to join a movie-list group and only user
 Get the third-party API call running so we can get other data such as synopsis, ratings, critic scores and images.
 Get Passport working with LocalStrategy as well as with Google, Facebook, possibly Twitter.
 
+
+
+![the-ultimate-movie-list](public/assets/homepage.png)
+![the-ultimate-movie-list](public/assets/dashboard.png)
