@@ -1,25 +1,27 @@
 {
-  "name": "the-ultimate-movie-list",
+  "name": "rotten-potatoes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Have you ever rented or started a movie only to figure out later that you’ve already seen it? How many times have you looked forward to a night on the couch relaxing and watching a good movie, but you don’t know what to watch? A list of what you’ve already seen and a recommendation from a reliable friend would be great.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/seeds.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/klay824/the-ultimate-movie-list.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Team 1",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/klay824/the-ultimate-movie-list/issues"
   },
-  "homepage": "https://github.com/klay824/the-ultimate-movie-list#readme",
+  "homepage": "https://github.com/klay824/the-ultimate-movie-list",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "connect-session-sequelize": "^7.1.1",
     "dotenv": "^9.0.2",
     "eslint": "^7.26.0",
@@ -27,7 +29,10 @@
     "express-handlebars": "^5.3.2",
     "express-session": "^1.17.1",
     "handlebars": "^4.7.7",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.12.10",
     "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
     "prettier": "^2.3.0",
     "sequelize": "^6.6.2"
   },
